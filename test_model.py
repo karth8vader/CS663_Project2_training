@@ -464,13 +464,13 @@ def run_live_stream(model, camera_id: int = 0, is_tflite: bool = False, interpre
                 for i, line in enumerate(lines):
                     if i == 0:
                         # Score line with color
-                        cv2.putText(
-                            frame,
+                cv2.putText(
+                    frame,
                             line,
                             (20, y_offset),
-                            cv2.FONT_HERSHEY_SIMPLEX,
+                    cv2.FONT_HERSHEY_SIMPLEX,
                             1.0,
-                            color,
+                    color,
                             2,
                             cv2.LINE_AA
                         )
@@ -484,8 +484,8 @@ def run_live_stream(model, camera_id: int = 0, is_tflite: bool = False, interpre
                             0.8,
                             (255, 255, 255),
                             2,
-                            cv2.LINE_AA
-                        )
+                    cv2.LINE_AA
+                )
                     y_offset += line_height
             else:
                 buffer_text = f"Buffering frames: {len(frame_buffer)}/{NUM_FRAMES}"
@@ -594,20 +594,20 @@ def main():
                 print("  ✓ Single-output model (score only)")
         else:
             # Load Keras model
-            try:
-                import keras
-            except ImportError:
-                print("\n" + "="*60)
-                print("ERROR: Keras dependencies not installed!")
-                print("="*60)
-                print("Please install required packages:")
-                print("  pip install -r requirements.txt")
-                print("\nOr install manually:")
-                print("  pip install \"tensorflow<2.17\" mediapipe opencv-python numpy rich")
-                print("="*60 + "\n")
-                return 1
-            
-            model = tf.keras.models.load_model(str(model_path))
+        try:
+            import keras
+        except ImportError:
+            print("\n" + "="*60)
+            print("ERROR: Keras dependencies not installed!")
+            print("="*60)
+            print("Please install required packages:")
+            print("  pip install -r requirements.txt")
+            print("\nOr install manually:")
+            print("  pip install \"tensorflow<2.17\" mediapipe opencv-python numpy rich")
+            print("="*60 + "\n")
+            return 1
+        
+        model = tf.keras.models.load_model(str(model_path))
             print("Keras model loaded successfully!")
             # Check if multi-output
             if isinstance(model.output_shape, dict) or (isinstance(model.output_shape, list) and len(model.output_shape) > 1):
@@ -619,8 +619,8 @@ def main():
         print("\nTroubleshooting:")
         print("1. Make sure all dependencies are installed: pip install -r requirements.txt")
         if not is_tflite:
-            print("2. Check that TensorFlow version is < 2.17")
-            print("3. Try: pip install --upgrade tensorflow keras")
+        print("2. Check that TensorFlow version is < 2.17")
+        print("3. Try: pip install --upgrade tensorflow keras")
         import traceback
         traceback.print_exc()
         return 1

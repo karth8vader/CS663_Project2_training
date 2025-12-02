@@ -1,8 +1,29 @@
-env
+# Virtual environment
+env/
 .env
-data
-./data
-/data
-.data
-./env
-.checkpoints
+
+# Data directories
+data/
+./data/
+/data/
+
+# Model checkpoints and exports
+checkpoints/
+export_savedmodel/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
