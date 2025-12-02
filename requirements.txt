@@ -1,0 +1,27 @@
+tensorflow<2.17
+tensorflow-io
+mediapipe
+opencv-python
+numpy
+rich
+matplotlib
+fiftyone
+tqdm
+requests
+pycocotools
+
+# GPU Support (optional)
+#
+# For NVIDIA GPU (Linux/Windows):
+#   pip install tensorflow[and-cuda]
+#   Or: pip install tensorflow-gpu
+#   Also requires:
+#   - CUDA Toolkit: https://developer.nvidia.com/cuda-downloads
+#   - cuDNN: https://developer.nvidia.com/cudnn
+#
+# For Mac GPU (Apple Silicon M1/M2/M3):
+#   Mac GPU (Metal Performance Shaders) is automatically enabled if:
+#   - You have Apple Silicon (M1/M2/M3)
+#   - TensorFlow 2.5+ is installed
+#   - No additional setup needed - MPS is built into TensorFlow for Mac
+
